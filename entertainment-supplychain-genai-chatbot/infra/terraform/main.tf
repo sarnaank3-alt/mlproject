@@ -17,31 +17,20 @@ resource "aws_s3_bucket" "db_backups" {
   acl    = "private"
 }
 
-resource "aws_db_instance" "rds_instance" {
-  identifier         = "entertainment-supplychain-db"
-  engine             = "postgres"
-  engine_version     = "13.3"
-  instance_class     = "db.t3.micro"
+resource "aws_db_instance" "main" {
+  identifier          = "entertainment-supplychain-db"
+  engine              = "postgres"
+  engine_version      = "13.3"
+  instance_class      = "db.t3.micro"
   allocated_storage   = 20
-  username           = var.db_username
-  password           = var.db_password
-  db_name            = "entertainment_db"
+  username            = var.db_username
+  password            = var.db_password
+  db_name             = "entertainment_db"
   skip_final_snapshot = true
 }
 
-resource "aws_ecs_cluster" "main_cluster" {
+resource "aws_ecs_cluster" "main" {
   name = "entertainment-supplychain-cluster"
-}
-
-resource "aws_lambda_function" "ingest_doc" {
-  function_name = "ingest_doc_function"
-  handler       = "handler.main"
-  runtime       = "python3.8"
-  s3_bucket     = aws_s3_bucket.raw_files.bucket
-  s3_key        = "path/to/your/lambda/package.zip"
-  environment = {
-    VECTOR_STORE_URL = var.vector_store_url
-  }
 }
 
 resource "aws_efs_file_system" "shared_storage" {
@@ -71,14 +60,14 @@ resource "aws_cloudwatch_metric_alarm" "high_cpu" {
   alarm_name          = "HighCPUUtilization"
   comparison_operator = "GreaterThanThreshold"
   evaluation_periods  = "1"
-  metric_name        = "CPUUtilization"
-  namespace          = "AWS/ECS"
-  period             = "60"
-  statistic          = "Average"
-  threshold          = "80"
-  alarm_description  = "This alarm triggers when CPU utilization exceeds 80%"
+  metric_name         = "CPUUtilization"
+  namespace           = "AWS/ECS"
+  period              = "60"
+  statistic           = "Average"
+  threshold           = "80"
+  alarm_description   = "This alarm triggers when CPU utilization exceeds 80%"
   dimensions = {
-    ClusterName = aws_ecs_cluster.main_cluster.name
+    ClusterName = aws_ecs_cluster.main.name
     ServiceName = "your_service_name"
   }
 }
