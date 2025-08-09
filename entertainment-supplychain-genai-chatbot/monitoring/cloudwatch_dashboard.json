@@ -1,0 +1,96 @@
+{
+  "widgets": [
+    {
+      "type": "metric",
+      "properties": {
+        "metrics": [
+          [ "AWS/Lambda", "Invocations", "FunctionName", "ingest_doc" ],
+          [ "AWS/Lambda", "Errors", "FunctionName", "ingest_doc" ]
+        ],
+        "period": 300,
+        "stat": "Sum",
+        "name": "Lambda Invocations and Errors",
+        "label": "Invocations / Errors",
+        "unit": "Count"
+      }
+    },
+    {
+      "type": "metric",
+      "properties": {
+        "metrics": [
+          [ "AWS/ECS", "CPUUtilization", "ClusterName", "your-cluster-name", "ServiceName", "your-service-name" ]
+        ],
+        "period": 300,
+        "stat": "Average",
+        "name": "ECS CPU Utilization",
+        "label": "CPU Utilization",
+        "unit": "Percent"
+      }
+    },
+    {
+      "type": "metric",
+      "properties": {
+        "metrics": [
+          [ "AWS/ECS", "MemoryUtilization", "ClusterName", "your-cluster-name", "ServiceName", "your-service-name" ]
+        ],
+        "period": 300,
+        "stat": "Average",
+        "name": "ECS Memory Utilization",
+        "label": "Memory Utilization",
+        "unit": "Percent"
+      }
+    },
+    {
+      "type": "metric",
+      "properties": {
+        "metrics": [
+          [ "AWS/RDS", "CPUUtilization", "DBInstanceIdentifier", "your-db-instance-id" ]
+        ],
+        "period": 300,
+        "stat": "Average",
+        "name": "RDS CPU Utilization",
+        "label": "CPU Utilization",
+        "unit": "Percent"
+      }
+    },
+    {
+      "type": "metric",
+      "properties": {
+        "metrics": [
+          [ "AWS/RDS", "DatabaseConnections", "DBInstanceIdentifier", "your-db-instance-id" ]
+        ],
+        "period": 300,
+        "stat": "Average",
+        "name": "RDS Database Connections",
+        "label": "Database Connections",
+        "unit": "Count"
+      }
+    },
+    {
+      "type": "metric",
+      "properties": {
+        "metrics": [
+          [ "AWS/S3", "NumberOfObjects", "BucketName", "your-bucket-name" ]
+        ],
+        "period": 86400,
+        "stat": "Average",
+        "name": "S3 Object Count",
+        "label": "Number of Objects",
+        "unit": "Count"
+      }
+    },
+    {
+      "type": "metric",
+      "properties": {
+        "metrics": [
+          [ "AWS/CloudWatch", "GetMetricData", "Namespace", "AWS/Lambda" ]
+        ],
+        "period": 300,
+        "stat": "Average",
+        "name": "CloudWatch GetMetricData",
+        "label": "GetMetricData",
+        "unit": "Count"
+      }
+    }
+  ]
+}

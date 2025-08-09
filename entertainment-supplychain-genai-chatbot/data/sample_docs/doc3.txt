@@ -1,0 +1,3 @@
+This is the content for the file /entertainment-supplychain-genai-chatbot/entertainment-supplychain-genai-chatbot/data/sample_docs/doc3.txt:
+
+This document provides an overview of the entertainment supply chain, detailing the roles of studios, distributors, vendors, and post-production services. It highlights the importance of rights management and the processes involved in securing content for distribution. Additionally, it discusses the challenges faced by stakeholders in the industry, including the need for efficient workflows and the integration of technology to streamline operations. The document serves as a foundational resource for understanding the complexities of the entertainment supply chain and the impact of generative AI on enhancing these processes.

@@ -1,0 +1,3 @@
+This is the content for the file /entertainment-supplychain-genai-chatbot/entertainment-supplychain-genai-chatbot/data/sample_docs/doc2.txt:
+
+This document provides an overview of the entertainment supply chain, detailing the various stages involved from content creation to distribution. It highlights the roles of studios, distributors, and vendors, and discusses the importance of rights management and post-production processes. The document also emphasizes the need for efficient communication and collaboration among all stakeholders to ensure timely delivery and compliance with legal requirements.

@@ -1,0 +1,1 @@
+This is a sample document for testing the chatbot's retrieval capabilities. It contains information relevant to the entertainment supply chain, including details about studios, distributors, vendors, and rights management processes. The content is designed to help evaluate the chatbot's ability to retrieve and summarize information effectively.
