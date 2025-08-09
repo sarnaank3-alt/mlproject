@@ -17,39 +17,12 @@ resource "aws_s3_bucket" "db_backups" {
   acl    = "private"
 }
 
-resource "aws_db_instance" "main" {
-  identifier          = "entertainment-supplychain-db"
-  engine              = "postgres"
-  engine_version      = "13.3"
-  instance_class      = "db.t3.micro"
-  allocated_storage   = 20
-  username            = var.db_username
-  password            = var.db_password
-  db_name             = "entertainment_db"
-  skip_final_snapshot = true
-}
-
 resource "aws_ecs_cluster" "main" {
   name = "entertainment-supplychain-cluster"
 }
 
 resource "aws_efs_file_system" "shared_storage" {
   creation_token = "entertainment-supplychain-efs"
-}
-
-resource "aws_iam_role" "ecs_task_execution_role" {
-  name = "ecsTaskExecutionRole"
-  assume_role_policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [{
-      Action = "sts:AssumeRole"
-      Principal = {
-        Service = "ecs-tasks.amazonaws.com"
-      }
-      Effect = "Allow"
-      Sid    = ""
-    }]
-  })
 }
 
 resource "aws_cloudwatch_log_group" "ecs_logs" {
