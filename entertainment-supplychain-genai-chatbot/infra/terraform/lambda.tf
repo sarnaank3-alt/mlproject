@@ -60,7 +60,6 @@ resource "aws_iam_policy" "lambda_policy_ingest" {
       {
         Effect = "Allow"
         Action = "execute-api:Invoke"
-        Resource = aws_vectorstore.api_gateway.arn
       }
     ]
   })

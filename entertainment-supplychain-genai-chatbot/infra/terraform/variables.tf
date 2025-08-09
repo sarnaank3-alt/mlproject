@@ -1,23 +1,20 @@
-variable "environment" {
-  description = "Deployment environment (e.g. dev, prod)"
+variable "subnet_id" {
+  description = "Subnet ID for EFS mount target"
   type        = string
-  default     = "dev"
 }
 
-variable "db_name" {
-  description = "Database name"
+variable "security_group_id" {
+  description = "Security group ID for EFS mount target"
   type        = string
-  default     = "entertainment_db"
 }
 
-variable "db_subnet_ids" {
-  description = "List of subnet IDs for RDS"
-  type        = list(string)
-  default     = []
+variable "db_username" {
+  description = "Database username"
+  type        = string
 }
 
-variable "region" {
-  description = "AWS region"
+variable "db_password" {
+  description = "Database password"
   type        = string
-  default     = "us-west-2"
+  sensitive   = true
 }

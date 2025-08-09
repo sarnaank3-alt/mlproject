@@ -13,11 +13,3 @@ output "ecs_cluster_name" {
 output "lambda_function_name" {
   value = aws_lambda_function.ingest_doc.function_name
 }
-
-output "cloudwatch_dashboard_name" {
-  value = aws_cloudwatch_dashboard.main.dashboard_name
-}
-
-output "vector_store_endpoint" {
-  value = aws_appsync_graphql_api.vector_store.endpoint
-}

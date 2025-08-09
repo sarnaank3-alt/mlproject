@@ -4,17 +4,14 @@ provider "aws" {
 
 resource "aws_s3_bucket" "raw_files" {
   bucket = "entertainment-supplychain-raw-files"
-  acl    = "private"
 }
 
 resource "aws_s3_bucket" "vector_store_dumps" {
   bucket = "entertainment-supplychain-vector-store-dumps"
-  acl    = "private"
 }
 
 resource "aws_s3_bucket" "db_backups" {
   bucket = "entertainment-supplychain-db-backups"
-  acl    = "private"
 }
 
 resource "aws_ecs_cluster" "main" {
